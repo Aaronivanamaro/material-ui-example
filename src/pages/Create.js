@@ -2,6 +2,7 @@ import { KeyboardArrowRight, KeyboardArrowRightSharp, Send } from "@mui/icons-ma
 import { Container, Button, ButtonGroup, Typography } from "@mui/material";
 
 export default function Create() {
+
     return (
         // Container creates a margin
         // disableGutters removes the padding
@@ -10,7 +11,10 @@ export default function Create() {
 
          {/* align: 'center', 'inherit', 'justify', 'left', 'right' */}
 
-            <Typography variant ="h3" gutterBottom component="h1" color="primary">
+            <Typography variant ="h3" gutterBottom component="h1" color="primary"
+                // How to override default styles with sx
+                // sx={{color: 'green', '&:hover': {color: 'green'}}}
+            >
                 Create a New Note
             </Typography>
             
@@ -20,11 +24,11 @@ export default function Create() {
                 type="submit" variant="contained" disableElevation 
                 onClick={() => console.log('You clicked me!')}
                 startIcon={<Send />}
-                endIcon={<KeyboardArrowRight />}>
+                endIcon={<KeyboardArrowRight />} >
                 Submit
             </Button>
             
-            <ButtonGroup color="info" variant="contained">
+            <ButtonGroup color="secondary" variant="contained">
                 <Button disabled>One</Button>
                 <Button>Two</Button>
                 <Button>Three</Button>
