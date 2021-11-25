@@ -11,16 +11,22 @@ export default function Create() {
 
          {/* align: 'center', 'inherit', 'justify', 'left', 'right' */}
 
-            <Typography variant ="h3" gutterBottom component="h1" color="primary"
-                // How to override default styles with sx
-                // sx={{color: 'green', '&:hover': {color: 'green'}}}
-            >
+            <Typography variant ="h3" gutterBottom component="h1" color="primary" >
                 Create a New Note
             </Typography>
             
         {/* color: 'primary', 'secondary', 'success', 'error', 'info', 'warning' */}
         {/* variant: 'contained', 'outlined', 'text' */}
             <Button 
+                // How to override default styles with sx
+                // sx={[
+                //      { 
+                //        '&:hover' : {
+                //          color: 'red',
+                //          backgroundColor: 'yellow'
+                //      } 
+                //  }
+                // ]}  
                 type="submit" variant="contained" disableElevation 
                 onClick={() => console.log('You clicked me!')}
                 startIcon={<Send />}
