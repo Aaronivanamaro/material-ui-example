@@ -1,8 +1,12 @@
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 import { Send } from "@mui/icons-material";
 import { Container, Button, Typography, TextField, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from "@mui/material";
-import { useState } from "react";
+import axios from "axios";
 
 export default function Create() {
+
+    const navigate = useNavigate()
 
     const [title, setTitle] = useState('')
     const [titleError, setTitleError] = useState(false)
@@ -27,7 +31,9 @@ export default function Create() {
             setCategoryError(true)
         }
         if (title && details && category) {
-            console.log(title, details, category);
+            axios.post('http://localhost:8000/notes', {
+                title, details, category })
+                 .then(() => navigate('/')) 
         }
     }
 

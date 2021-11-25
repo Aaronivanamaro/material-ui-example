@@ -1,0 +1,28 @@
+{
+  "notes": [
+    {
+      "title": "Mom's Birthday",
+      "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque totam blanditiis omnis, at dolore modi velit ut error esse fuga?",
+      "category": "reminders",
+      "id": 1
+    },
+    {
+      "title": "Complete project before weekend",
+      "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque totam blanditiis omnis, at dolore modi velit ut error esse fuga?",
+      "category": "work",
+      "id": 2
+    },
+    {
+      "title": "Drink a coffe with Mike",
+      "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque totam blanditiis omnis, at dolore modi velit ut error esse fuga?",
+      "category": "todos",
+      "id": 3
+    },
+    {
+      "title": "Save half the income",
+      "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque totam blanditiis omnis, at dolore modi velit ut error esse fuga?",
+      "category": "money",
+      "id": 4
+    }
+  ]
+}
