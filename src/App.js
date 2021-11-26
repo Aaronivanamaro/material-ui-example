@@ -1,29 +1,30 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Notes from './pages/Notes'
 import Create from './pages/Create'
-import { createTheme, ThemeProvider } from "@mui/material";
-import { purple } from "@mui/material/colors";
+import Layout from "./components/Layout";
 
 // Function to create new theme that overrides default values
-const theme = createTheme({
-  palette:{
-    primary: {
-      main: '#0a0a0a'
-    },
-    secondary: purple
-  }
-})
+// primary.main
+// secondary.main
+// error.main
+// warning.main
+// info.main
+// success.main
+// text.primary
+// text.secondary
+// text.disabled
 
 function App() {
+
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
+    <Router>
+      <Layout>
         <Routes>
           <Route path="/" element={<Notes />} />
           <Route path="/create" element={<Create />} />
         </Routes>
-      </Router>    
-    </ThemeProvider>
+      </Layout>
+    </Router>    
   );
 }
 

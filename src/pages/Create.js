@@ -8,6 +8,30 @@ export default function Create() {
 
     const navigate = useNavigate()
 
+    const colorSecLight = theme => theme.palette.secondary.light
+    const colorSecMain = theme => theme.palette.secondary.main
+
+    const textFieldStyle =  [
+        { 
+            '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: colorSecLight 
+            }
+        },  
+        {
+            '& .MuiInputLabel-root': { 
+                color: colorSecLight 
+            }
+        }
+    ]
+
+    const radioGroup =  [
+        { color: colorSecLight },
+        { '& .MuiRadio-root.Mui-checked': {
+            color: colorSecLight
+        }}
+    ]
+    const radioStyledComponent = <Radio sx={{ color: colorSecLight }} />
+
     const [title, setTitle] = useState('')
     const [titleError, setTitleError] = useState(false)
     const [details, setDetails] = useState('')
@@ -38,8 +62,9 @@ export default function Create() {
     }
 
     return (
-        <Container maxWidth="sm">
-            <Typography variant ="h3" gutterBottom component="h1" color="primary">
+        <Container maxWidth="sm" sx={{ pt: 2 }}>
+            <Typography variant ="h5" gutterBottom component="h2" 
+                sx={{ color: colorSecMain }}>
                 Create a New Note
             </Typography>
             
@@ -57,6 +82,8 @@ export default function Create() {
                     fullWidth
                     margin="normal"
                     error={titleError}
+                    sx={ textFieldStyle }
+                    inputProps={ { sx:{color: colorSecLight} } }
                 />
 
                 <TextField 
@@ -70,18 +97,20 @@ export default function Create() {
                     // how many rows to show
                     multiline
                     rows={4}
-                    margin="normal"
+                    margin="dense"
                     error={detailsError}
+                    sx={ textFieldStyle }
+                    inputProps={ { sx:{color: colorSecLight} } }
                 />
 
-                <FormControl sx={{display: 'block'}} margin='normal' error={categoryError}>
-                    <FormLabel>Note Category</FormLabel> 
+                <FormControl sx={{display: 'block'}} margin='dense' error={categoryError}>
+                    <FormLabel sx={ { color: colorSecMain, mb: 2 } } color="secondary">Note Category</FormLabel> 
                     {/* Without wrapping the options in a group, you may select many */}
-                    <RadioGroup value={category} onChange={e => setCategory(e.target.value)}> 
-                        <FormControlLabel value="money" control={<Radio />} label="Money" />
-                        <FormControlLabel value="todos" control={<Radio />} label="Todos" />
-                        <FormControlLabel value="reminders" control={<Radio />} label="Reminders" />
-                        <FormControlLabel value="work" control={<Radio />} label="Work" />
+                    <RadioGroup sx={radioGroup} value={category} onChange={e => setCategory(e.target.value)}> 
+                        <FormControlLabel value="money" control={radioStyledComponent} label="Money" />
+                        <FormControlLabel value="todos" control={radioStyledComponent} label="Todos" />
+                        <FormControlLabel value="reminders" control={radioStyledComponent} label="Reminders" />
+                        <FormControlLabel value="work" control={radioStyledComponent} label="Work" />
                     </RadioGroup>                   
                 </FormControl>
 
@@ -89,7 +118,8 @@ export default function Create() {
                     type="submit" variant="contained"  
                     endIcon={<Send />} 
                     // Abreviation de certain CSS props
-                    sx={{mt: 1}}>
+                    sx={{my: 1}}
+                    color="secondary">
                     Submit
                 </Button>
 
